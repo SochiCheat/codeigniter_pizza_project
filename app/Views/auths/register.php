@@ -11,24 +11,34 @@
         <img src="images/logo.svg" alt="" width="50">
         Peperoni App
         </h3>
+
         <div>
           <div class="form-group">
             <label class="text-uppercase small">Email</label>
-            <input type="email" class="form-control" placeholder="Enter email">
+            <input type="email" class="form-control" placeholder="Enter email" id="email" name="email" >
           </div>
           <div class="form-group">
             <label class="text-uppercase small">Password</label>
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" class="form-control" placeholder="Password" id="password" name="password" value="">
           </div>
           <div class="form-group">
             <label class="text-uppercase small">Address</label>
-            <textarea name=""  class="form-control" placeholder="Address"></textarea>
+            <textarea class="form-control" placeholder="Address" id="address" name="address" value=""></textarea>
           </div>
           <div class="form-check">
             <label class="form-check-label">
                 <input type="checkbox" class="form-check-input" value="">I'm a manager
             </label>
         </div>
+        <div class="alert mt-3">
+
+          <?php if(isset($validation)):?>
+          <div class="alert alert-danger" role="alert">
+          <?= $validation->listErrors() ?>
+          
+          </div>
+        </div>
+        <?php endif?>
         </div>
       </div>
       <div class="auth__form_actions">
@@ -36,12 +46,13 @@
           NEXT
         </button>
         <div class="mt-2">
-          <a href="/signin" class="small text-uppercase">
+          <a href="/signup" class="small text-uppercase">
             SIGN IN INSTEAD
           </a>
         </div>
       </div>
     </form>
+    
   </div>
 </div>
 <?= $this->endSection() ?>
